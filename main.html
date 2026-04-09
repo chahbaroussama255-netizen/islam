@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Islam - Portfolio Personnel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --bg: #f5f0e8;
+  --dark: #1a1a2e;
+  --accent: #c0392b;
+  --text: #333;
+  --light: #fff;
+  --nav-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  z-index: 100;
+}
+
+nav .logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--light);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex; gap: 30px;
+}
+
+nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover { color: var(--accent); }
+
+/* HERO */
+#accueil {
+  height: 100vh;
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; text-align: center;
+  padding: 20px;
+}
+
+#accueil h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--light);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: 16px;
+}
+
+#accueil h1 span { color: var(--accent); }
+
+#accueil p {
+  color: #aaa;
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.85; }
+
+/* SECTIONS */
+section { padding: 80px 40px; max-width: 960px; margin: 0 auto; }
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.divider {
+  width: 50px; height: 3px;
+  background: var(--accent);
+  margin-bottom: 36px;
+}
+
+/* A PROPOS */
+#apropos .grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.avatar {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+  color: #fff;
+}
+
+#apropos p { color: #555; }
+
+/* COMPETENCES */
+#competences { background: var(--dark); max-width: 100%; padding: 80px 40px; }
+#competences .inner { max-width: 960px; margin: 0 auto; }
+#competences h2 { color: var(--light); }
+#competences .divider { background: var(--accent); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.skill-card h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+.skill-card p { color: #aaa; font-size: 0.9rem; }
+
+/* QUALITES */
+.qualites-list {
+  display: flex; flex-wrap: wrap; gap: 12px;
+}
+
+.qualite-tag {
+  background: var(--dark);
+  color: var(--light);
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* REALISATIONS */
+#realisations { background: #ede8dc; max-width: 100%; padding: 80px 40px; }
+#realisations .inner { max-width: 960px; margin: 0 auto; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--light);
+  border-top: 4px solid var(--accent);
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.project-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.project-card p { color: #666; font-size: 0.9rem; }
+
+/* CENTRES D'INTERET */
+.interests-list {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+
+.interest-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--light);
+  padding: 12px 20px;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  font-size: 0.9rem;
+}
+
+.interest-item span { font-size: 1.4rem; }
+
+/* CONTACT */
+#contact { background: var(--dark); max-width: 100%; padding: 80px 40px; }
+#contact .inner { max-width: 960px; margin: 0 auto; }
+#contact h2 { color: var(--light); }
+#contact .divider { background: var(--accent); }
+#contact p { color: #aaa; margin-bottom: 30px; }
+
+.contact-links {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+
+.contact-link {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+}
+
+.contact-link:hover { background: var(--accent); border-color: var(--accent); }
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  nav ul { gap: 14px; }
+  #apropos .grid { grid-template-columns: 1fr; }
+  .avatar { width: 120px; height: 120px; font-size: 2.5rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="logo">Islam.</div>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="projets.html">Projets</a></li>
+
+```
+</ul>
+```
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section id="accueil">
+    <h1>Bonjour, je suis <span>Islam</span></h1>
+    <p>Étudiant en 2ème année à HECI Business School, passionné par le digital, le développement web et l'entrepreneuriat.</p>
+    <a href="#apropos" class="btn">Découvrir mon profil</a>
+  </section>
+
+  <!-- A PROPOS -->
+
+  <section id="apropos">
+    <h2>À propos de moi</h2>
+    <div class="divider"></div>
+    <div class="grid">
+      <div class="avatar">👤</div>
+      <div>
+        <p>Je m'appelle <strong>Islam</strong>, étudiant en Master Web à HECI Business School (2ème année, Semestre 4). Passionné par les nouvelles technologies et le développement web, je cherche constamment à améliorer mes compétences techniques et à concrétiser des projets innovants.</p>
+        <br/>
+        <p>Mon parcours m'a permis d'acquérir une solide base en développement front-end et back-end, ainsi qu'une bonne maîtrise des outils de création de sites web modernes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENCES -->
+
+  <div id="competences">
+    <div class="inner">
+      <h2>Mes Compétences</h2>
+      <div class="divider"></div>
+      <div class="skills-grid">
+        <div class="skill-card"><h4>HTML / CSS</h4><p>Création de pages web structurées et responsives.</p></div>
+        <div class="skill-card"><h4>JavaScript</h4><p>Développement d'interactions dynamiques côté client.</p></div>
+        <div class="skill-card"><h4>WordPress</h4><p>Création et personnalisation de sites WordPress.</p></div>
+        <div class="skill-card"><h4>PHP / MySQL</h4><p>Développement back-end et gestion de bases de données.</p></div>
+        <div class="skill-card"><h4>SEO</h4><p>Optimisation du référencement naturel des sites web.</p></div>
+        <div class="skill-card"><h4>Réseaux sociaux</h4><p>Gestion et stratégie de communication digitale.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUALITES -->
+
+  <section id="qualites">
+    <h2>Mes Qualités</h2>
+    <div class="divider"></div>
+    <div class="qualites-list">
+      <span class="qualite-tag">🎯 Rigoureux</span>
+      <span class="qualite-tag">💡 Créatif</span>
+      <span class="qualite-tag">🤝 Esprit d'équipe</span>
+      <span class="qualite-tag">⚡ Autonome</span>
+      <span class="qualite-tag">📚 Curieux</span>
+      <span class="qualite-tag">🗣️ Bon communicant</span>
+    </div>
+  </section>
+
+  <!-- REALISATIONS -->
+
+  <div id="realisations">
+    <div class="inner">
+      <h2>Mes Réalisations</h2>
+      <div class="divider"></div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h4>Site vitrine d'entreprise</h4>
+          <p>Création d'un site vitrine pour une PME locale avec WordPress, incluant un formulaire de contact et une galerie photo.</p>
+        </div>
+        <div class="project-card">
+          <h4>Observatoire de l'Entreprise</h4>
+          <p>Étude de marché et rapport digital réalisés dans le cadre du projet Observatoire de l'Entreprise à HECI.</p>
+        </div>
+        <div class="project-card">
+          <h4>Blog personnel</h4>
+          <p>Développement d'un blog HTML/CSS/JS de A à Z sur la thématique du marketing digital et des tendances web.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTRES D'INTERET -->
+
+  <section id="interets">
+    <h2>Centres d'intérêts</h2>
+    <div class="divider"></div>
+    <div class="interests-list">
+      <div class="interest-item"><span>💻</span> Développement web</div>
+      <div class="interest-item"><span>📱</span> Technologies mobiles</div>
+      <div class="interest-item"><span>⚽</span> Football</div>
+      <div class="interest-item"><span>🎵</span> Musique</div>
+      <div class="interest-item"><span>📖</span> Lecture</div>
+      <div class="interest-item"><span>✈️</span> Voyages</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Islam — Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
