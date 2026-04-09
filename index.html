@@ -1,372 +1,150 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Islam - Portfolio Personnel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <title>Islam | Business Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --bg: #0f172a; /* Deep Midnight */
+      --card-bg: #1e293b;
+      --accent: #fbbf24; /* Amber Gold */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --nav-h: 70px;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-```
-:root {
-  --bg: #f5f0e8;
-  --dark: #1a1a2e;
-  --accent: #c0392b;
-  --text: #333;
-  --light: #fff;
-  --nav-h: 64px;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-html { scroll-behavior: smooth; }
+    /* NAVIGATION */
+    nav {
+      position: fixed; top: 0; width: 100%; height: var(--nav-h);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 10%; z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 16px;
-  line-height: 1.7;
-}
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); }
+    nav ul { display: flex; gap: 30px; list-style: none; }
+    nav ul a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+    nav ul a:hover { color: var(--accent); }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--nav-h);
-  background: var(--dark);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  z-index: 100;
-}
+    /* HERO SECTION */
+    #accueil {
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    }
 
-nav .logo {
-  font-family: 'Playfair Display', serif;
-  color: var(--light);
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-}
+    #accueil h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem; line-height: 1; }
+    #accueil h1 span { color: var(--accent); }
+    #accueil p { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
 
-nav ul {
-  list-style: none;
-  display: flex; gap: 30px;
-}
+    .btn {
+      padding: 14px 36px; background: var(--accent); color: #000;
+      text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s transform;
+    }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
 
-nav ul li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
+    /* CONTENT SECTIONS */
+    section { padding: 100px 10%; max-width: 1200px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 3rem; position: relative; }
+    h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin-top: 10px; }
 
-nav ul li a:hover { color: var(--accent); }
+    /* ABOUT GRID */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
+    .avatar-box { 
+        width: 100%; aspect-ratio: 1; background: var(--card-bg); 
+        border-radius: 20px; display: flex; align-items: center; justify-content: center;
+        font-size: 5rem; border: 2px solid rgba(255,255,255,0.05);
+    }
 
-/* HERO */
-#accueil {
-  height: 100vh;
-  background: var(--dark);
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; text-align: center;
-  padding: 20px;
-}
+    /* CARDS */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card-bg); padding: 30px; border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-10px); }
+    .card h4 { color: var(--accent); margin-bottom: 10px; font-size: 1.2rem; }
 
-#accueil h1 {
-  font-family: 'Playfair Display', serif;
-  color: var(--light);
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  margin-bottom: 16px;
-}
+    footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
 
-#accueil h1 span { color: var(--accent); }
-
-#accueil p {
-  color: #aaa;
-  font-size: 1.1rem;
-  max-width: 500px;
-  margin-bottom: 32px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 32px;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: opacity 0.2s;
-}
-
-.btn:hover { opacity: 0.85; }
-
-/* SECTIONS */
-section { padding: 80px 40px; max-width: 960px; margin: 0 auto; }
-
-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--dark);
-}
-
-.divider {
-  width: 50px; height: 3px;
-  background: var(--accent);
-  margin-bottom: 36px;
-}
-
-/* A PROPOS */
-#apropos .grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.avatar {
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: var(--dark);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 4rem;
-  color: #fff;
-}
-
-#apropos p { color: #555; }
-
-/* COMPETENCES */
-#competences { background: var(--dark); max-width: 100%; padding: 80px 40px; }
-#competences .inner { max-width: 960px; margin: 0 auto; }
-#competences h2 { color: var(--light); }
-#competences .divider { background: var(--accent); }
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.skill-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 4px;
-}
-
-.skill-card h4 { color: var(--accent); margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
-.skill-card p { color: #aaa; font-size: 0.9rem; }
-
-/* QUALITES */
-.qualites-list {
-  display: flex; flex-wrap: wrap; gap: 12px;
-}
-
-.qualite-tag {
-  background: var(--dark);
-  color: var(--light);
-  padding: 8px 20px;
-  border-radius: 2px;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-}
-
-/* REALISATIONS */
-#realisations { background: #ede8dc; max-width: 100%; padding: 80px 40px; }
-#realisations .inner { max-width: 960px; margin: 0 auto; }
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  background: var(--light);
-  border-top: 4px solid var(--accent);
-  padding: 24px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-}
-
-.project-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.project-card p { color: #666; font-size: 0.9rem; }
-
-/* CENTRES D'INTERET */
-.interests-list {
-  display: flex; flex-wrap: wrap; gap: 16px;
-}
-
-.interest-item {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--light);
-  padding: 12px 20px;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  font-size: 0.9rem;
-}
-
-.interest-item span { font-size: 1.4rem; }
-
-/* CONTACT */
-#contact { background: var(--dark); max-width: 100%; padding: 80px 40px; }
-#contact .inner { max-width: 960px; margin: 0 auto; }
-#contact h2 { color: var(--light); }
-#contact .divider { background: var(--accent); }
-#contact p { color: #aaa; margin-bottom: 30px; }
-
-.contact-links {
-  display: flex; flex-wrap: wrap; gap: 16px;
-}
-
-.contact-link {
-  display: inline-block;
-  padding: 12px 28px;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--light);
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  transition: background 0.2s;
-}
-
-.contact-link:hover { background: var(--accent); border-color: var(--accent); }
-
-/* FOOTER */
-footer {
-  background: #111;
-  color: #666;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.8rem;
-}
-
-@media (max-width: 600px) {
-  nav ul { gap: 14px; }
-  #apropos .grid { grid-template-columns: 1fr; }
-  .avatar { width: 120px; height: 120px; font-size: 2.5rem; }
-}
-```
-
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      nav ul { display: none; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
 
   <nav>
     <div class="logo">Islam.</div>
     <ul>
       <li><a href="#accueil">Accueil</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="projets.html">Projets</a></li>
-
-```
-</ul>
-```
-
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#realisations">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- HERO -->
-
   <section id="accueil">
-    <h1>Bonjour, je suis <span>Islam</span></h1>
-    <p>Étudiant en 2ème année à HECI Business School, passionné par le digital, le développement web et l'entrepreneuriat.</p>
-    <a href="#apropos" class="btn">Découvrir mon profil</a>
+    <h1>Salut, je suis <span>Islam</span></h1>
+    <p>Étudiant en 2ème année de Business Administration passionné par la stratégie digitale et l'automatisation des affaires.</p>
+    <a href="#apropos" class="btn">Me découvrir</a>
   </section>
-
-  <!-- A PROPOS -->
 
   <section id="apropos">
     <h2>À propos de moi</h2>
-    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="avatar-box">👤</div>
+      <div class="about-text">
+        <p>Je m'appelle <strong>Islam</strong>, étudiant en <strong>2ème année de Business Administration</strong> à HECI Business School.</p>
+        <br>
+        <p>Spécialisé en économie et gestion, je combine mes compétences académiques avec une passion pour le développement no-code et les outils d'automatisation comme AppSheet et Google Apps Script pour transformer les processus métiers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2>Compétences</h2>
     <div class="grid">
-      <div class="avatar">👤</div>
-      <div>
-        <p>Je m'appelle <strong>Islam</strong>, étudiant en Master Web à HECI Business School (2ème année, Semestre 4). Passionné par les nouvelles technologies et le développement web, je cherche constamment à améliorer mes compétences techniques et à concrétiser des projets innovants.</p>
-        <br/>
-        <p>Mon parcours m'a permis d'acquérir une solide base en développement front-end et back-end, ainsi qu'une bonne maîtrise des outils de création de sites web modernes.</p>
+      <div class="card"><h4>Business Analysis</h4><p>Analyse de données et optimisation des flux de travail en entreprise.</p></div>
+      <div class="card"><h4>No-Code Dev</h4><p>Expertise en Google Sheets, AppSheet et business automation.</p></div>
+      <div class="card"><h4>UI/UX Design</h4><p>Conception d'interfaces modernes et fonctionnelles "style Apple".</p></div>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <h2>Mes Réalisations</h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Terminal d'Opérations</h4>
+        <p>Système de gestion de stock et point de vente via IMEI pour le secteur électronique.</p>
+      </div>
+      <div class="card">
+        <h4>ERP Associatif</h4>
+        <p>Développement d'un système de gestion de tâches personnalisé pour une ONG de 24 membres.</p>
+      </div>
+      <div class="card">
+        <h4>Analyse de Secteur</h4>
+        <p>Étude approfondie du secteur de la distribution dans la région Fès-Meknès.</p>
       </div>
     </div>
   </section>
 
-  <!-- COMPETENCES -->
-
-  <div id="competences">
-    <div class="inner">
-      <h2>Mes Compétences</h2>
-      <div class="divider"></div>
-      <div class="skills-grid">
-        <div class="skill-card"><h4>HTML / CSS</h4><p>Création de pages web structurées et responsives.</p></div>
-        <div class="skill-card"><h4>JavaScript</h4><p>Développement d'interactions dynamiques côté client.</p></div>
-        <div class="skill-card"><h4>WordPress</h4><p>Création et personnalisation de sites WordPress.</p></div>
-        <div class="skill-card"><h4>PHP / MySQL</h4><p>Développement back-end et gestion de bases de données.</p></div>
-        <div class="skill-card"><h4>SEO</h4><p>Optimisation du référencement naturel des sites web.</p></div>
-        <div class="skill-card"><h4>Réseaux sociaux</h4><p>Gestion et stratégie de communication digitale.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUALITES -->
-
-  <section id="qualites">
-    <h2>Mes Qualités</h2>
-    <div class="divider"></div>
-    <div class="qualites-list">
-      <span class="qualite-tag">🎯 Rigoureux</span>
-      <span class="qualite-tag">💡 Créatif</span>
-      <span class="qualite-tag">🤝 Esprit d'équipe</span>
-      <span class="qualite-tag">⚡ Autonome</span>
-      <span class="qualite-tag">📚 Curieux</span>
-      <span class="qualite-tag">🗣️ Bon communicant</span>
-    </div>
-  </section>
-
-  <!-- REALISATIONS -->
-
-  <div id="realisations">
-    <div class="inner">
-      <h2>Mes Réalisations</h2>
-      <div class="divider"></div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h4>Site vitrine d'entreprise</h4>
-          <p>Création d'un site vitrine pour une PME locale avec WordPress, incluant un formulaire de contact et une galerie photo.</p>
-        </div>
-        <div class="project-card">
-          <h4>Observatoire de l'Entreprise</h4>
-          <p>Étude de marché et rapport digital réalisés dans le cadre du projet Observatoire de l'Entreprise à HECI.</p>
-        </div>
-        <div class="project-card">
-          <h4>Blog personnel</h4>
-          <p>Développement d'un blog HTML/CSS/JS de A à Z sur la thématique du marketing digital et des tendances web.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CENTRES D'INTERET -->
-
-  <section id="interets">
-    <h2>Centres d'intérêts</h2>
-    <div class="divider"></div>
-    <div class="interests-list">
-      <div class="interest-item"><span>💻</span> Développement web</div>
-      <div class="interest-item"><span>📱</span> Technologies mobiles</div>
-      <div class="interest-item"><span>⚽</span> Football</div>
-      <div class="interest-item"><span>🎵</span> Musique</div>
-      <div class="interest-item"><span>📖</span> Lecture</div>
-      <div class="interest-item"><span>✈️</span> Voyages</div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Islam — Tous droits réservés</p>
+  <footer id="contact">
+    <p>© 2026 Islam — Business Analyst en devenir. Propulsé par la passion.</p>
   </footer>
 
 </body>
